@@ -1,0 +1,13 @@
+About to run tests as follows:
+Unit tests will be run.
+Function tests will be run.
+Load tests will be run.
+Only the package jet.testtools will be tested.
+Only the test class TestDataClassGeneratorTest will be run.
+
+########### Running Unit Tests ###########
+TestDataClassGeneratorTest
+    mainTest passed
+>>>> Results of Unit Tests for jet.testtools: passed. <<<<
+########### Running Function Tests ###########
+########### Running Load Tests ###########

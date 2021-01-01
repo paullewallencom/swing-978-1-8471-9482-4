@@ -1,0 +1,2 @@
+GrandTestAuto 3.1
+a36.functiontest.FT passed

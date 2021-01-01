@@ -1,0 +1,9 @@
+RUN_UNIT_TESTS=true
+LOG_TO_CONSOLE=true
+RUN_LOAD_TESTS=true
+LOG_TO_FILE=false
+RUN_FUNCTION_TESTS=true
+CLASSES_ROOT=C\:/personal/gta4/code/build/testtemp
+COLLATED_RESULTS_FILE_NAME=FileInWhichToCollateResults.txt
+LESS_VERBOSE=true
+DISTRIBUTOR_PORT=12345

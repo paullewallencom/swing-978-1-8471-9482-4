@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<HTML>
+<HEAD><TITLE></TITLE></HEAD>
+<HTML>
+<BODY>
+<code>GrandTestAuto</code> runs Unit Tests on all packages in a class hierarchy, and <code>CoverageUnitTester</code>
+ensures that all accessible classes and methods are tested.
+<p>
+For the purposes of <code>GrandTestAuto</code>, a class hierarchy is defined by the class files in
+a directory and its sub-directories, and a Unit Test is a class that implements <code>UnitTeserIF</code>
+and is located in a package with name ending ".test". The chief implementation of <code>UnitTesterIF</code>
+is <code>CoverageUnitTester</code>, which checks that all public non-abstract classes in a package are
+tested and that all public and protected methods in a class, except those inherited from other packages,
+are tested.
+<p>
+The runtime parameters for <code>GrandTestAuto</code> (such as the root of the classes hierarchy directory)
+are given as a properties file (see <code>Settings</code>).
+<p>
+<code>TestRunner</code> is a tool for running just the unit tests in a particular class.
+</BODY>
+</HTML>

@@ -1,0 +1,5 @@
+<?xml version='1.0' ?>
+<map version="1.0">
+    <mapID target="ExampleSubTopic" url="ExampleSubTopic.html"/>
+    <mapID target="ExampleTopic" url="ExampleTopic.html"/>
+</map>

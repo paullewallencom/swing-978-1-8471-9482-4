@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+
+<HEAD>
+	<TITLE>untitled</TITLE>
+</HEAD>
+
+<BODY>
+
+Here is a broken link: <a href="NonExistent1.html">broken</a> since the linked file is not there..
+
+Here is a broken link: <a href="http://wwwww.non-existent-domain.commmm">broken</a> to a non-existent website.
+
+Here is a good link: <a href="http://java.sun.com">ok</a> to a website.
+
+Here is a good link: <a href="ExampleTopic.html">ok</a> to a file.
+
+Here is a good image <img src="Red.png">.
+
+Here is an image that we regard as a broken link due to the uppercase extension <img src="Red.PNG">.
+
+Here is a non-existent image <img src="Puce.png">.
+
+</BODY>
+
+</HTML>

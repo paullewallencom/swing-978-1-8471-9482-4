@@ -1,0 +1,1 @@
+java -ea -Xmx256M -cp "ExtremeTesting.jar" org.grandtestauto.distributed.TestAgent TestAgent.properties

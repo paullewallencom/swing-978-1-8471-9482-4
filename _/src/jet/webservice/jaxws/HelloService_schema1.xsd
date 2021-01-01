@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://webservice.jet/" xmlns:tns="http://webservice.jet/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="query" type="tns:query"/>
+
+  <xs:element name="queryResponse" type="tns:queryResponse"/>
+
+  <xs:complexType name="query">
+    <xs:sequence>
+      <xs:element name="arg0" type="tns:request" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="request">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="queryResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:response" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="response">
+    <xs:sequence>
+      <xs:element name="message" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+

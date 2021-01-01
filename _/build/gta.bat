@@ -1,0 +1,2 @@
+set LIB=..\lib
+%JAVA_HOME%\bin\java -ea -Xmx256M -DTestDataRoot="..\testdata" -cp ..\classes;.\testtemp;%LIB%\jh.jar;%LIB%\PDFBox.jar;%LIB%\FontBox.jar;%LIB%\commons-io.jar;%LIB%\mail.jar;%LIB%\jxl.jar;%LIB%\ant.jar; org.grandtestauto.GrandTestAuto GTASettings.txt

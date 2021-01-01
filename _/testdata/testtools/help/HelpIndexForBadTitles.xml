@@ -1,0 +1,6 @@
+<index version="1.0">
+  <indexitem text="Topic A" target="A"/>
+  <indexitem text="Topic B" target="B">
+    <indexitem text="Topic C" target="C"/>
+  </indexitem>
+</index>

@@ -1,0 +1,15 @@
+# To test the software using several computers on a network, we use the
+# DistributedGTA system (Chapter 19). The parent directory of the build
+# directory (this file is in the build directory) is shared as T:
+
+CLASSES_ROOT=T:\\classes
+
+LOG_TO_CONSOLE=t
+LOG_TO_FILE=t
+
+DISTRIBUTOR_PORT=8086
+
+SINGLE_PACKAGE=j.ut
+
+
+

@@ -1,0 +1,24 @@
+########### Running Unit Tests ###########
+ATest
+    valueTest passed
+BTest
+    valueTest passed
+CTest
+    valueTest passed
+DTest
+    valueTest passed
+ETest
+    valueTest passed
+In a81 the following constructors were not tested:
+public a81.E()
+public a81.B()
+public a81.A()
+public a81.D()
+public a81.C().
+>>>> Results of Unit Tests for a81: failed. <<<<
+******* Overall Unit Test Result: failed. *******
+########### Running Function Tests ###########
+Running Function Tests in a81.functiontest....
+A passed
+B passed
+C passed

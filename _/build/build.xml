@@ -1,0 +1,154 @@
+<project name="jet" default="compile" basedir="../">
+    <property name="dist" value="dist"/>
+    <property name="docs" value="docs"/>
+    <property name="lib" value="../lib"/>
+    <property name="src" value="src"/>
+    <property name="jaxws" value="${src}/jet/webservice/jaxws"/>
+    <property name="bak" value="bak"/>
+    <property name="run" value="run"/>
+    <property name="testdata" value="testdata"/>
+    <property name="classes" value="./classes"/>
+    
+    <path id="classpath">
+        <pathelement path="${classes}"/>
+        <fileset dir="lib">
+            <include name="*.jar"/>
+        </fileset>
+    </path>
+    
+    <target name="init">
+        <mkdir dir="${bak}"/>
+        <delete file="${bak}/src.zip.old"/>
+        <move file="${bak}/src.zip" tofile="${bak}/src.zip.old" failonerror="false"/>
+        <zip destfile="${bak}/src.zip">
+            <zipfileset dir="${src}" includes="**/*"/>
+        </zip>
+        <delete dir="${classes}"/>
+        <mkdir dir="${classes}"/>
+        <mkdir dir="${dist}"/>
+    </target>
+
+    <target name="compile" depends="compile-nontest, copy-resources, GenerateHelp, build-hello, TCG, compile-test"/>
+
+    <target name="runtests" description="Run GrandTestAuto">
+        <taskdef name="run-gta" classname="org.grandtestauto.ant.RunGrandTestAuto">
+            <classpath>
+                <pathelement path="${classes}"/>                    
+                <fileset dir="lib">
+                    <include name="*.jar"/>
+                </fileset>
+                <pathelement path="./testtemp/"/>                    
+            </classpath>
+        </taskdef>
+        <run-gta SettingsFileName="GTASettings.txt"/>    
+    </target>    
+
+    <target name="compile-nontest">
+        <javac  srcdir="${src}" 
+                destdir="${classes}" 
+                source="1.5" 
+                debug="true" 
+                excludes="**/**/test/**">
+                        <classpath>
+                <path refid="classpath"/>
+            </classpath>
+		<compilerarg value="-Xlint:unchecked"/>
+        </javac>
+    </target>   
+    
+    <target name="build-hello" depends="compile-nontest">
+	  <mkdir dir="${jaxws}"/>     
+	  <exec executable="wsgen">
+	    <arg line="-cp ${classes} -verbose -r ${jaxws} -s ${src} -d ${classes} -wsdl jet.webservice.Hello"/>
+	  </exec>	        
+	  <java classname="jet.webservice.Hello" fork="true" dir="${src}">
+	       <classpath refid="classpath" />
+	  </java>
+	</target>
+	
+	<target name="compile-test">
+        <javac  srcdir="${src}" 
+                destdir="${classes}" 
+                source="1.5" 
+                debug="true" 
+                includes="**/**/test/**">
+                        <classpath>
+                <path refid="classpath"/>
+            </classpath>
+            <compilerarg value="-Xlint:unchecked"/>
+        </javac>
+    </target>   
+        
+    <target name="copy-resources">
+        <copy todir="${classes}" >
+            <fileset dir="${src}" >
+                <include name="**/*.properties"/>
+                <include name="**/*.png"/>
+                <include name="**/*.gif"/>
+                <include name="**/*.hs"/>
+                <include name="**/*.jhm"/>
+                <include name="**/*.xml"/>
+                <include name="**/*.html"/>
+            </fileset>
+            
+        </copy>
+    </target>
+    
+    <target name="compileTCG" description="Compile TestData Class Generator">
+        <echo message="Compile TestData Class Generator"/>
+        <javac srcdir="${src}" debug="on"
+            source="1.5"
+            destdir="${classes}"
+            excludes="**/test/**"
+            includes="**/TestDataClassGenerator.java">
+            <classpath>
+                <path refid="classpath"/>
+            </classpath>
+        </javac>
+    </target>
+    
+    <target name="TCG" description="Run TestData Class Generator" depends="compileTCG">
+           <echo message="Running TestData Class Generator" />
+           <java classname="jet.testtools.TestDataClassGenerator" fork="true" maxmemory="384m" dir="${src}">
+               <classpath>
+                   <path refid="classpath" />
+               </classpath>
+               <arg path="${src}"/>
+               <arg value="jet.testtools.test"/>
+               <arg path="${testdata}"/>
+           </java>
+    </target>
+    
+	<target name="GenerateHelp" description="Generate Help info.">
+           <java classname="jet.testtools.help.HelpGenerator" fork="true" maxmemory="384m" dir="${src}">
+               <classpath>
+                   <path refid="classpath" />
+               </classpath>
+               <arg value="jet.testtools.help"/>
+               <arg path="${src}/jet/testtools/help"/>
+           </java>
+	</target>
+
+    <target name="build">
+        <antcall target="init"/>
+        <antcall target="compile"/>
+        <antcall target="gta"/>
+    </target>  
+
+    <target name="deploy">
+        <jar jarfile="${dist}/ExtremeTesting.jar" basedir="${classes}">
+            <manifest>
+                <attribute name="Main-Class" value="jet.ikonmaker.IkonMaker"/>
+            </manifest>
+        </jar>
+    </target>
+    
+    <target name="docs">
+    	<javadoc destdir="${docs}" author="true" version="true" use="true" windowtitle="Java Extreme Testing Javadoc">
+        <fileset dir="src" defaultexcludes="yes">
+          <include name="**/*.java"/>
+        </fileset>
+      </javadoc>
+    </target>
+
+</project>

@@ -1,0 +1,14 @@
+########### Running Unit Tests ###########
+>>>> Results of Unit Tests for a36: passed. <<<<
+******* Overall Unit Test Result: passed. *******
+########### Running Function Tests ###########
+Running Function Tests in a36.functiontest....
+FT passed
+>>>> Results of Function Tests for a36.functiontest: passed. <<<<
+******* Overall Function Test Result: passed. *******
+########### Running Load Tests ###########
+Running Load Tests in a36.loadtest....
+LT passed
+>>>> Results of Load Tests for a36.loadtest: passed. <<<<
+******* Overall Load Test Result: passed. *******
+!!!!!!!!!!!!!Overall Test Result: passed !!!!!!!!!!!!!

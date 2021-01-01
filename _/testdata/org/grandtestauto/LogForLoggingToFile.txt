@@ -1,0 +1,30 @@
+########### Running Unit Tests ###########
+Error running UnitTester in package a44.a.
+>>>> Results of Unit Tests for a44.a: failed. <<<<
+>>>> Results of Unit Tests for a44.b: passed. <<<<
+>>>> Results of Unit Tests for a44.c: passed. <<<<
+******* Overall Unit Test Result: failed. *******
+########### Running Function Tests ###########
+Running Function Tests in a44.a.functiontest....
+Error running FT.
+FT failed
+>>>> Results of Function Tests for a44.a.functiontest: failed. <<<<
+Running Function Tests in a44.b.functiontest....
+FT passed
+>>>> Results of Function Tests for a44.b.functiontest: passed. <<<<
+Running Function Tests in a44.c.functiontest....
+FT passed
+>>>> Results of Function Tests for a44.c.functiontest: passed. <<<<
+******* Overall Function Test Result: failed. *******
+########### Running Load Tests ###########
+Running Load Tests in a44.a.loadtest....
+Error running LT.
+LT failed
+>>>> Results of Load Tests for a44.a.loadtest: failed. <<<<
+Running Load Tests in a44.b.loadtest....
+LT passed
+>>>> Results of Load Tests for a44.b.loadtest: passed. <<<<
+Running Load Tests in a44.c.loadtest....
+LT passed
+>>>> Results of Load Tests for a44.c.loadtest: passed. <<<<
+******* Overall Load Test Result: failed. *******

@@ -1,0 +1,18 @@
+package book.testtools.test;
+
+public class Testdata {
+
+public static final String PATH = "C:\\personal\\TestingBook\\code\\build\\testdata\\";
+
+public static final String BirdInBush_JPEG = PATH + "BirdInBush.JPEG";
+public static final String BRRB = PATH + "BRRB";
+public static final String BRRB_gif = PATH + "BRRB.gif";
+public static final String BRRB_png = PATH + "BRRB.png";
+public static final String datafile_txt = PATH + "datafile.txt";
+public static final String Iota_ikon = PATH + "Iota.ikon";
+public static final String Red_png = PATH + "Red.png";
+public static final String RGGR_png = PATH + "RGGR.png";
+public static final String ServerInLinux_png = PATH + "ServerInLinux.png";
+public static final String waratah_jpg = PATH + "waratah.jpg";
+
+}

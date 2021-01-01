@@ -1,0 +1,30 @@
+# This file is used to control which packages, classes or
+# methods are tested, using the GrandTestAuto testing 
+# tool. Details can be found in Chapter 19.
+
+CLASSES_ROOT=..\\classes
+
+LOG_TO_CONSOLE=true
+
+LOG_TO_FILE=t
+
+RUN_UNIT_TESTS=t
+RUN_FUNCTION_TESTS=t
+RUN_LOAD_TESTS=t
+
+SINGLE_PACKAGE=j.t
+FIRST_PACKAGE=
+LAST_PACKAGE=
+
+SINGLE_CLASS=TestDataClassGeneratorTest
+FIRST_CLASS=
+LAST_CLASS=
+
+SINGLE_METHOD=
+FIRST_METHOD=
+LAST_METHOD=
+
+FAIL_FAST=f
+
+
+

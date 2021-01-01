@@ -1,0 +1,46 @@
+In a1 the following classes are not unit-tested:
+Y
+X.
+In a1 the following constructors were not tested:
+public a1.X()
+public a1.Y().
+In a1 the following methods are not unit-tested:
+public void a1.Y.m()
+public void a1.X.m().
+>>>> Results of Unit Tests for a1: failed. <<<<
+
+In a1.b the following class is not unit-tested:
+X.
+In a1.b the following constructor was not tested:
+public a1.b.X().
+In a1.b the following method is not unit-tested:
+public void a1.b.X.m().
+>>>> Results of Unit Tests for a1.b: failed. <<<<
+
+In a1.b.e.g the following classes are not unit-tested:
+UnitTester
+X.
+In a1.b.e.g the following constructors were not tested:
+public a1.b.e.g.X()
+public a1.b.e.g.UnitTester(org.grandtestauto.GrandTestAuto).
+In a1.b.e.g the following methods are not unit-tested:
+public boolean a1.b.e.g.UnitTester.runTests()
+public void a1.b.e.g.X.m().
+>>>> Results of Unit Tests for a1.b.e.g: failed. <<<<
+
+In a1.c.h the following class is not unit-tested:
+X.
+In a1.c.h the following constructor was not tested:
+public a1.c.h.X().
+In a1.c.h the following method is not unit-tested:
+public void a1.c.h.X.m().
+>>>> Results of Unit Tests for a1.c.h: failed. <<<<
+
+In a1.d the following class is not unit-tested:
+X.
+In a1.d the following constructor was not tested:
+public a1.d.X().
+In a1.d the following method is not unit-tested:
+public void a1.d.X.m().
+>>>> Results of Unit Tests for a1.d: failed. <<<<
+

@@ -1,0 +1,2 @@
+set LIB=T:\lib
+java -ea -Xmx256M -cp T:\classes;T:\build\testtemp;%LIB%\activation.jar;%LIB%\jh.jar;%LIB%\PDFBox.jar;%LIB%\FontBox.jar;%LIB%\commons-io.jar;%LIB%\mail.jar;%LIB%\ant.jar;%LIB%\jxl.jar; org.grandtestauto.distributed.GTADistributor DistributorSettings.txt

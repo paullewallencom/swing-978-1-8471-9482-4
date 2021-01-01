@@ -1,0 +1,6 @@
+<index version="1.0">
+  <indexitem text="This is a topic." target="ExampleTopic"/>
+  <indexitem text="This is another topic." target="SingleBrokenLink">
+    <indexitem text="This is a sub-topic." target="BrokenLinks"/>
+  </indexitem>
+</index>

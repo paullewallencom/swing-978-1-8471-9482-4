@@ -1,0 +1,229 @@
+
+        >>>> SWING EXTREME TESTING <<<<
+
+These directories and archives contain the source code, build files,
+and test data for the testing tools and example programs used in
+"Swing Extreme Testing" by Tim Lavers and Lindsay Peters, 
+ISBN10 1-847194-82-6 
+ISBN13 978-1-847194-82-4
+
+DIRECTORY STRUCTURE
+###################
+We use the Apache Ant build tool (http://ant.apache.org).
+The code directory has these subdirectories:
+
+bak:            Used by one of the Ant steps to make a zip of the source code.
+
+build:          Ant is to be run from this directory.
+
+classes:        The classes are compiled to this directory.
+
+dist:           The Ant deployment task puts the jar here.
+
+lib:            Contains the jar files needed to build the code.
+
+src:            Contains the source files.
+
+TestAgent:      In the distributed testing of this code, one of the TestAgents
+                can be run from this location. This is described in Chapter 19.
+
+testdata:       Configured files used in the tests
+
+testpackages:   A lot of the unit and function tests for GrandTestAuto use
+                configured zips of directories of packages. This directory 
+                contains the source files for these test projects.
+
+
+COMPILING THE CODE
+##################
+You will need
+- JDK1.6 or above.
+- The Apache Ant build tool.
+- The JAVA_HOME variable set to the JDK installation. (This variable is used
+  by Ant, so this should be no problem.)
+- wsgen in your path. When you install the JDK, you get a tool called
+  wsgen in the JDK bin directory. This tool is needed in one of the build steps.
+
+Copy the entire code directory to some location, say C:\books\jet. So the copy
+of this file would end up as C:\books\jet\code.
+
+Open a command prompt in the 'build' directory.
+
+Type in "ant compile". This should run a series of Ant build steps:
+    compile-nontest //Compiles the 'production' classes.
+    copy-resources  //Copies various image and properties files to the classes directory.
+    GenerateHelp    //Generates help indexes for ths JavaHelp system studied in Chapter 11.
+    build-hello     //Generates the classes needed for the Web Service studied in Chapter 17.
+    TCG             //Generates classes that contain constants pointing to various test data files.
+    compile-test    //Compiles the test classes.
+The build process takes about 30 seconds on a fairly modest laptop. The steps copy-resources
+and TCG are the subject of Chapter 3. The GenerateHelp build step is explained in Chapter 11.
+The build-hello step is explained in Chapter 17.
+
+RUNNING THE EXAMPLES
+####################
+The best way to see the the example classes at work is by running the unit tests.
+Many of these use the java.awt.Robot extensively, and provide a pretty good show.
+
+To run the tests, invoke the gta.bat command from the build directory. 
+The command, as it is written, assumes that the JAVA_HOME variable is set
+and points the JVM in a JDK. One of the tests creates and compiles some
+java source code and needs the JDK, rather than the JRE, to do this.
+If you don't want to set JAVA_HOME, just edit the batch file to point
+directly to the JVM in the JDK.
+
+To run a particular package of examples, use the SINGLE_PACKAGE property
+in the file GTASettings.txt. For example,
+
+    SINGLE_PACKAGE=j.te
+
+runs the jet.testtools package. (The package name completion used here is
+described in Chapter 19.)
+
+
+WARNING
+Some of the tests use java.awt.Robot to generate mouse and keyboard events.
+It can be quite disconcerting to have one's computer hijacked in this way.
+We suggest that you start out by just running a single package of tests.
+A good one to start with is
+    jet.relation (no robotic testing)
+then you might want to try
+    jet.login (a small package with a lot of robotic testing).
+The main demonstration application is in the package
+    jet.ikonmaker
+Most of the tools are in
+    jet.testtools
+It's quite instructive to run these tests. We have run all of the tests
+many times on Windows XP. Earlier versions were also run on Solaris 10.
+It would be no surprise to us if some of the tests didn't work on, say
+Windows Vista or various Linux flavours. The problems would be minor, and
+we will update this codebase as we test it on a wider variety of platforms.
+
+INCLUDED LIBRARIES
+##################
+The code uses a number of free Java libraries. These are given as jars in 
+the lib directory.
+
+THE CODE FOR EACH CHAPTER
+#########################
+Rather than have separate packages of code for individual chapters, we have
+organised the code into units based on functionality. To enable the code 
+samples in the book to be followed in the source code given here, 
+we provide this index:
+
+Chapter 2: 
+**********
+Packages jet.relation and jet.relation.test.
+
+Chapter 3:
+**********
+Classes jet.testtools.TestDataClassGenerator and jet.testtools.test.TestDataClassGeneratorTest.
+Classes jet.testtools.Files and jet.testtools.test.FilesTest
+
+Chapter 4: 
+**********
+Classes jet.testtools.Cyborg and jet.testtools.test.CyborgTest.
+
+Chapter 5: 
+**********
+Classes jet.util.UserStrings and jet.util.ResourcesTester and their unit tests
+jet.util.test.UserStringTest and jet.util.test.ResourcesTesterTest.
+The package jet.ikonmaker builds an application that uses the UserStrings
+class extensively.
+
+Chapter 6: 
+**********
+The packages jet.wizard and jet.wizard.test.
+
+Chapter 7: 
+**********
+The packages jet.login and jet.login.test.
+
+Chapter 8: 
+**********
+This mostly uses the jet.testtools.UI class and the jet.testtools.Cyborg
+class and their unit tests jet.testtools.test.UITest and 
+jet.testtools.test.CyborgTest.
+
+Chapter 9: 
+**********
+The class jet.ikonmaker.SaveAsDialog and its unit test
+jet.ikonmaker.test.SaveAsDialogTest, plus the 'UI Wrapper' class
+jet.ikonmaker.test.UISaveAsDialog.
+
+Chapter 10: 
+**********
+This mostly uses the jet.testtools.UI class and the jet.testtools.Cyborg
+class and their unit tests jet.testtools.test.UITest and 
+jet.testtools.test.CyborgTest. Some examples come from the unit tests
+in the jet.ikonmaker.test package.
+
+
+Chapter 11: 
+**********
+This uses jet.testtools.help.HelpGenerator and its unit tests
+jet.testtools.help.test.HelpGeneratorTest.
+
+Chapter 12: 
+**********
+The examples are taken from jet.concurrencyexamples and
+jet.concurrencyexamples.test.
+
+Chapter 13: 
+**********
+See jet.testtools.FileLogger and jet.testtools.test.FileLoggerTest.
+See also the unit test jet.testtools.test.AssertTest and the
+function test for GrandTestAuto,
+org.grandtestauto.test.functiontest.LoggingToConsole.
+
+Chapter 14: 
+**********
+The classes are
+jet.testtoools.MailBox
+jet.testtoools.test.MailBoxTest
+
+jet.testtoools.SMTPSender
+jet.testtoools.test.SMTPSenderTest
+
+jet.testtoools.TestHelper
+jet.testtoools.test.TestHelperTest
+
+jet.testtoools.SerializationTester
+jet.testtoools.test.SerializationTesterTest
+
+Chapter 15: 
+**********
+The entire package jet.user is for this chapter.
+See also the unit tests in jet.user.test.
+
+Chapter 17: 
+**********
+The WebServices test uses the packages under
+jet.webservice and in particular the function test
+jet.webservice.functiontest.SendRequest. 
+The build file build.xml (in the root directory) is also of interest.
+
+Chapter 18: 
+**********
+The main example is
+org.grandtestauto.test.loadtest.Load.
+The tools used are
+jet.testtools.Stopwatch and jet.test.testtools.Size.
+The unit tests jet.testtools.test.StopwatchTest
+and jet.testtools.test.SizeTest are also worth a look.
+
+Chapter 19: 
+**********
+GrandTestAuto is defined in the package org.grandtestauto.
+The DistributedGTA system is in the package org.grandtestauto.distributed.
+The unit, function and load tests for these packages are given as well.
+Some of these tests are used in the book to explain certain testing
+techniques. The requirements and testing specification (a single
+document) is included in the org.grandtestauto package.
+More up-to-date versions of this code and documentation can be found
+at http://grandtestauto.org.
+
+Chapter 20: 
+**********
+The main example is from what used to be a 'flaky' test in the
+jet.ikonmaker.test.IkonMakerTest class.
